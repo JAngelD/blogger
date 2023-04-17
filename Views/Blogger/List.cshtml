@@ -1,0 +1,44 @@
+@model bloggers.DTO.SearchBloggers
+@* @model bloggers.Models.Friend *@
+@using bloggers.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+
+<h4>Bloggers List</h4>
+<hr />
+ <form onsubmit="return false;" id="searchForm">
+    <div class="card h-auto">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-auto">
+                    <label asp-for="BloggerSearch"></label>
+                    <input type="text" class="form-control" asp-for="BloggerSearch">
+                </div>
+                <div class="col-auto">
+                    <br>
+                    <button class="btn btn-primary" id="btnSearchBlogger"><span class="material-symbols-outlined">Search</span>Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="container-fluid mt-2">
+    <table id="bloggersTable">
+
+    </table>
+</div>
+</body>
+</html>
+@{await Html.RenderPartialAsync("_form.cshtml");}
+@{await Html.RenderPartialAsync("~/Views/Friend/Index.cshtml");}
+@section Scripts{
+    <script src="~/js/blogger/blogger.js"></script>
+    <script src="~/js/friend/friend.js"></script>
+}
